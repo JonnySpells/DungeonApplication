@@ -22,7 +22,6 @@
             //Create the main loop
             do
             {
-                //TODO Generate a random room
                 Console.WriteLine(GetRoom());
 
                 //TODO Select a Monster (at random) for the player to encounter
@@ -45,6 +44,7 @@
                         "P) Player info\n" +
                         "M) Monster info\n" +
                         "X) Exit\n");
+
 
                     //Capture the user's menu selection
                     ConsoleKey userChoice = Console.ReadKey(true).Key; //Executes on key press
@@ -112,7 +112,7 @@
         {
             //Create a collection of "rooms"
             string[] rooms =
-{
+            {
                 "The room is dark and musty with the smell of lost souls.",
                 "You enter a pretty pink powder room and instantly get glitter on you.",
                 "You arrive in a room filled with chairs and a ticket stub machine... the dreaded DMV",
