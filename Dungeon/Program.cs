@@ -8,7 +8,19 @@
 
             Console.Title = "DUNGEON OF DOOM";
 
-            Console.WriteLine("Your journey begins...");
+            Console.WriteLine(@"
+ a88888b.            dP            dP                     dP
+d8'   `88            88            88                     88   
+88        .d8888b. d8888P .d8888b. 88 dP    dP .d8888b. d8888P
+88        88'  `88   88   88'  `88 88 88    88 Y8ooooo.   88
+Y8.   .88 88.  .88   88   88.  .88 88 88.  .88       88   88
+ Y88888P' `88888P8   dP   `88888P8 dP `8888P88 `88888P'   dP
+ooooooooooooooooooooooooooooooooooooooo~~~~.88~oooooooooooooooo
+                                       d8888P                  ");
+            Console.WriteLine("\n<~=~=~=~=~=~=~=~=~=~=~=~=~=~>\n" +
+                "\n<Press <Any Key> to continue.");
+            Console.ReadKey();
+            Console.Clear();
 
             #endregion
 
@@ -21,8 +33,7 @@
 
             //Create the main loop
             do
-            {
-                Console.WriteLine(GetRoom());
+            {                
 
                 //TODO Select a Monster (at random) for the player to encounter
 
@@ -32,17 +43,24 @@
                 bool reload = false;
 
                 //Create the gameplay loop
-                do
-                {
-                    //Create the gameplay menu
-                    #region Gameplay Menu
 
-                    //Prompt the user
-                    Console.Write("\nPlease choose an action:\n" +
-                        "A) Attack\n" +
-                        "R) Run away\n" +
-                        "P) Player info\n" +
-                        "M) Monster info\n" +
+
+                //Create the gameplay menu
+                #region Gameplay Menu
+
+                //Prompt the user
+                Console.WriteLine(@"
+ a88888b.            dP            dP                     dP
+d8'   `88            88            88                     88   
+88        .d8888b. d8888P .d8888b. 88 dP    dP .d8888b. d8888P
+88        88'  `88   88   88'  `88 88 88    88 Y8ooooo.   88
+Y8.   .88 88.  .88   88   88.  .88 88 88.  .88       88   88
+ Y88888P' `88888P8   dP   `88888P8 dP `8888P88 `88888P'   dP
+ooooooooooooooooooooooooooooooooooooooo~~~~.88~oooooooooooooooo
+                                       d8888P                  ");
+                Console.Write("\n<~=~=~=~=~=~=~=~=~>\n" +
+                        "S) Start New Game\n" +
+                        "C) Constinue Game\n" +                        
                         "X) Exit\n");
 
 
@@ -56,30 +74,19 @@
                     switch (userChoice)
                     {
 
-                        case ConsoleKey.A:
-                            Console.WriteLine("Combat");
+                        case ConsoleKey.S:
+                            Console.WriteLine(" * So it begins * >:3 ");
                             //TODO Combat
                             break;
 
-                        case ConsoleKey.R:
-                            Console.WriteLine("Run away");
+                        case ConsoleKey.C:
+                            Console.WriteLine("* havn't I seen you somewhere before * ;3 ");
                             //TODO Run away
-                            break;
-
-                        case ConsoleKey.P:
-                            Console.WriteLine("Player info");
-                            //TODO Player info
-                            break;
-
-                        case ConsoleKey.M:
-                            Console.WriteLine("Monster info");
-                            //TODO Monster info
-                            break;
+                            break;                       
 
                         //Allows the user to exit if they hit X OR E
-                        case ConsoleKey.X:
-                        case ConsoleKey.E:
-                            Console.WriteLine("No one likes a quitter...");
+                        case ConsoleKey.X:                        
+                            Console.WriteLine(" * Scaredy cat! * >:3 ");
 
                             //Flip the bool to break from the loop
                             exit = true;
@@ -87,7 +94,7 @@
 
                         default:
 
-                            Console.WriteLine("Thou hast chosen an improper action. Triest thou again.");
+                            Console.WriteLine(" * tilts head in confusion * /:3 Please Enter Proper Response. ");
 
                             break;
                     }
@@ -95,7 +102,7 @@
                     #endregion
 
 
-                } while (!exit && !reload); //Condition - while exit AND reload are NOT true, keep looping
+                 //Condition - while exit AND reload are NOT true, keep looping
 
                 #endregion
 
@@ -108,33 +115,7 @@
 
         #region GetRoom()
 
-        private static string GetRoom()
-        {
-            //Create a collection of "rooms"
-            string[] rooms =
-            {
-                "The room is dark and musty with the smell of lost souls.",
-                "You enter a pretty pink powder room and instantly get glitter on you.",
-                "You arrive in a room filled with chairs and a ticket stub machine... the dreaded DMV",
-                "You enter a quiet library... silence... nothing but silence....",
-                "As you enter the room, you realize you are standing on a platform surrounded by sharks",
-                "Oh my.... what is that smell? You appear to be standing in a compost pile",
-                "You enter a dark room and all you can hear is hair metal music blaring.... This is going to be bad!",
-                "The room looks just like the room you are sitting in right now... or does it?",
-            };
-
-            //Create a Random object
-            Random rand = new Random();
-
-            //Use the Random object's Next() to generate a number based on the length of the array
-            int indexNbr = rand.Next(rooms.Length);
-
-            //Create a variable to store the chosen "room"
-            string room = rooms[indexNbr];
-
-            //Return the chosen "room" to be displayed in a Console.WriteLine() in the Main()
-            return room;
-        }
+        
 
         #endregion
 
